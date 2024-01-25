@@ -1,0 +1,84 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Fiction"
+    },
+    {
+      "id": 2,
+      "name": "Non-Fiction"
+    },
+    {
+      "id": 3,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 4,
+      "name": "Mystery"
+    },
+    {
+      "id": 5,
+      "name": "Biography"
+    },
+    {
+      "id": 6,
+      "name": "History"
+    },
+    {
+      "id": 7,
+      "name": "Self-Help"
+    },
+    {
+      "id": 8,
+      "name": "Fantasy"
+    },
+    {
+      "id": 9,
+      "name": "Poetry"
+    },
+    {
+      "id": 10,
+      "name": "Cooking"
+    },
+    {
+      "id": 11,
+      "name": "Romance"
+    },
+    {
+      "id": 12,
+      "name": "Thriller"
+    },
+    {
+      "id": 13,
+      "name": "Drama"
+    },
+    {
+      "id": 14,
+      "name": "Travel"
+    },
+    {
+      "id": 15,
+      "name": "Science"
+    },
+    {
+      "id": 16,
+      "name": "Business"
+    },
+    {
+      "id": 17,
+      "name": "Art"
+    },
+    {
+      "id": 18,
+      "name": "Technology"
+    },
+    {
+      "id": 19,
+      "name": "Psychology"
+    },
+    {
+      "id": 20,
+      "name": "Humor"
+    }
+  ]
+}

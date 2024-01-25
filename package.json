@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i src/views/css/input.css -o src/views/css/output.css --watch",
+    "dev": "php -S localhost:3000"
+  }
+}
