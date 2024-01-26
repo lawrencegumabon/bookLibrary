@@ -1,4 +1,6 @@
-<div class="font-Krona bg-primary">
+<?php require('src\views\partial\head.php') ?>
+
+<div class=" bg-primary">
     <!-- MAIN -->
     <main class="bg-primary">
         <div class="flex justify-center items-center min-h-screen flex-col text-white text-6xl gap-24">

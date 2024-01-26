@@ -2,48 +2,26 @@
 
 <div class="bg-[#00000090] w-full z-30 absolute flex justify-center items-center min-h-screen px-2">
     <div class="bg-white shadow-md rounded-md p-4 max-w-xl w-full">
-        <h1 class="text-xl font-bold ">Add book:</h1>
-        <hr class="my-2">
-        <form action="/added-book" method="POST" class="flex flex-col gap-4 my-4">
-            <div class="">
-                <label for="bookName">Book name:</label>
-                <input type="text" name="bookName" id="bookName" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" placeholder="Example: The Book" required>
-                <?php if (isset($errors['book'])) : ?>
-                    <p class="text-xs text-danger mt-1"><?= $errors['book'] ?></p>
-                <?php endif; ?>
+        <div action="/added-book" method="POST" class="flex flex-col gap-4 my-4">
+            <div class="flex flex-col items-center gap-4 justify-center">
+                <i class="fa-solid fa-circle-exclamation text-7xl"></i>
+                <p class="text-xl font-bold">Are you sure?</p>
+                <p>You won't be able to revert this!</p>
             </div>
             <div>
-                <label for="authorName">Author name:</label>
-                <input type="text" name="authorName" id="authorName" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" placeholder="Example: Juan Dela Cruz" required>
-            </div>
-            <div>
-                <label for="category">Book Category:</label>
-                <select name="category" id="category" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none">
-                    <option value="None">Select Category</option>
-                    <?php foreach ($categories as $category) : ?>
-                        <option value="<?= $category['name'] ?>"><?= $category['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <?php if (isset($errors['category'])) : ?>
-                    <p class="text-xs text-danger mt-1"><?= $errors['category'] ?></p>
-                <?php endif; ?>
-            </div>
-            <div>
-                <label for="status">Status:</label>
-                <select name="status" id="status" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none">
-                    <option value="Read">Select Status</option>
-                    <option value="Read">Unread</option>
-                    <option value="Unread">Read</option>
-                </select>
             </div>
             <div class="flex justify-between w-full gap-2">
                 <a href="/myBooks" class="flex justify-center w-full">
-                    <p class="text-white bg-[#DC3545] py-1 font-bold rounded-md shadow-md tracking-widest w-full text-center hover:brightness-110 duration-300">CANCEL</p>
+                    <p class="text-white bg-[#DC3545] py-1 font-bold rounded-md shadow-md tracking-widest w-full text-center hover:brightness-110 duration-300">No, Cancel!</p>
                 </a>
-                <div class="flex justify-center w-full"><button type="submit" class="text-white bg-[#28A745] py-1 font-bold rounded-md shadow-md tracking-widest w-full hover:brightness-110 duration-300">DONE</button></div>
+                <!-- <a href="/deleted-book?bookID=<?= $bookID ?>" class="flex justify-center w-full"><button class="text-white bg-[#28A745] py-1 font-bold rounded-md shadow-md tracking-widest w-full hover:brightness-110 duration-300">Yes, Delete!</button></a> -->
+                <form action="/deleted-book" method="POST" class="w-full">
+                    <!-- <input type="hidden" name="_method" id="logout" value="DELETE"> -->
+                    <input type="text" name="bookID" value="<?= $bookID ?>" hidden>
+                    <button type="submit" class="text-white  text-center bg-[#28A745] py-1 font-bold rounded-md shadow-md tracking-widest w-full hover:brightness-110 duration-300">Yes, Delete!</button>
+                </form>
             </div>
-        </form>
-
+        </div>
     </div>
 </div>
 

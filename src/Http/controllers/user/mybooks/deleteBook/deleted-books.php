@@ -12,11 +12,21 @@ $user = $db->query('SELECT * FROM users WHERE id = :id', [
     'id' => $userID
 ])->find();
 
-$books = $db->query('SELECT * FROM books WHERE user_id = :user_id ORDER BY title ASC', [
+$books = $db->query('SELECT * FROM books WHERE user_id = :user_id', [
     'user_id' => $userID
 ])->get();
 
 $categoriesJson = file_get_contents('src\views\categories\categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
-require 'src\views\user\books\mybooks.view.php';
+$bookID = $_POST['bookID'];
+
+$db->query('DELETE FROM books WHERE id = :id', [
+    'id' => $bookID
+]);
+
+// dd($bookID);
+
+require 'src\views\user\books\deleteBook\success.view.php';
+// header("Location: /myBooks");
+// exit();

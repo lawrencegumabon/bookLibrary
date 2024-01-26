@@ -2,24 +2,26 @@
 
 <div class="bg-[#00000090] w-full z-30 absolute flex justify-center items-center min-h-screen px-2">
     <div class="bg-white shadow-md rounded-md p-4 max-w-xl w-full">
-        <h1 class="text-xl font-bold ">Add book:</h1>
+        <h1 class="text-xl font-bold ">Edit book:</h1>
         <hr class="my-2">
-        <form action="/added-book" method="POST" class="flex flex-col gap-4 my-4">
+        <form action="/edited-book" method="POST" class="flex flex-col gap-4 my-4">
+            <input type="text" name="bookID" value="<?= $myBook['id'] ?>" hidden>
             <div class="">
                 <label for="bookName">Book name:</label>
-                <input type="text" name="bookName" id="bookName" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" placeholder="Example: The Book" required>
+                <input type="text" name="bookName" id="bookName" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" placeholder="Example: The Book" value="<?= $myBook['title'] ?>">
                 <?php if (isset($errors['book'])) : ?>
                     <p class="text-xs text-danger mt-1"><?= $errors['book'] ?></p>
                 <?php endif; ?>
             </div>
+
             <div>
-                <label for="authorName">Author name:</label>
-                <input type="text" name="authorName" id="authorName" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" placeholder="Example: Juan Dela Cruz" required>
+                <label for="authorName">Book author name:</label>
+                <input type="text" name="authorName" id="authorName" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" placeholder="Example: Juan Dela Cruz" value="<?= $myBook['author'] ?>">
             </div>
             <div>
-                <label for="category">Book Category:</label>
-                <select name="category" id="category" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none">
-                    <option value="None">Select Category</option>
+                <label for="category">Book category:</label>
+                <select name="category" id="category" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none" value="">
+                    <option value="<?= $myBook['category'] ?>"><?= $myBook['category'] ?></option>
                     <?php foreach ($categories as $category) : ?>
                         <option value="<?= $category['name'] ?>"><?= $category['name'] ?></option>
                     <?php endforeach; ?>
@@ -28,19 +30,11 @@
                     <p class="text-xs text-danger mt-1"><?= $errors['category'] ?></p>
                 <?php endif; ?>
             </div>
-            <div>
-                <label for="status">Status:</label>
-                <select name="status" id="status" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none">
-                    <option value="Read">Select Status</option>
-                    <option value="Read">Unread</option>
-                    <option value="Unread">Read</option>
-                </select>
-            </div>
             <div class="flex justify-between w-full gap-2">
                 <a href="/myBooks" class="flex justify-center w-full">
                     <p class="text-white bg-[#DC3545] py-1 font-bold rounded-md shadow-md tracking-widest w-full text-center hover:brightness-110 duration-300">CANCEL</p>
                 </a>
-                <div class="flex justify-center w-full"><button type="submit" class="text-white bg-[#28A745] py-1 font-bold rounded-md shadow-md tracking-widest w-full hover:brightness-110 duration-300">DONE</button></div>
+                <div class="flex justify-center w-full"><button type="submit" class="text-white bg-[#28A745] py-1 font-bold rounded-md shadow-md tracking-widest w-full hover:brightness-110 duration-300">SAVE</button></div>
             </div>
         </form>
 
@@ -62,7 +56,7 @@
         </div>
         <div class="flex justify-between gap-4">
             <div class="w-full">
-                <select name="" id="categories" class="w-full p-2 rounded-md bg-body border border-outline text-outline outline-none">
+                <select name="categorys" id="categories" class="w-full p-2 rounded-md bg-body border border-outline text-outline outline-none">
                     <option value="All">Select Categories</option>
                     <?php foreach ($categories as $category) : ?>
                         <option value="<?= $category['name'] ?>"><?= $category['name'] ?></option>
@@ -70,7 +64,7 @@
                 </select>
             </div>
             <div class="w-full">
-                <select name="" id="status" class="w-full p-2 rounded-md bg-body border border-outline text-outline outline-none">
+                <select name="status" id="status" class="w-full p-2 rounded-md bg-body border border-outline text-outline outline-none">
                     <option value="All">Select Status</option>
                     <option value="Read">Read</option>
                     <option value="Unread">Unread</option>

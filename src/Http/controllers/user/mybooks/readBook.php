@@ -19,4 +19,17 @@ $books = $db->query('SELECT * FROM books WHERE user_id = :user_id ORDER BY title
 $categoriesJson = file_get_contents('src\views\categories\categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
-require 'src\views\user\books\mybooks.view.php';
+$bookID = $_GET['bookID'];
+
+$myBook = $db->query('SELECT * FROM books WHERE id = :id', [
+    'id' => $bookID
+])->find();
+
+$db->query('UPDATE books SET status = :status WHERE id = :id', [
+    'id' => $bookID,
+    'status' => 'Read'
+]);
+
+// require 'src\views\user\books\mybooks.view.php';
+header("Location: /myBooks");
+exit();

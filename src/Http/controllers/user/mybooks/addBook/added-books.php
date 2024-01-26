@@ -22,31 +22,35 @@ $categories = json_decode($categoriesJson, true)['categories'];
 $bookName = $_POST['bookName'];
 $authorName = $_POST['authorName'];
 $category = $_POST['category'];
+$status = $_POST['status'];
 
 $errors = [];
 
-$book = $db->query('SELECT * FROM books WHERE title = :title AND author = :author AND user_id = :user_id', [
+$book = $db->query('SELECT * FROM books WHERE title = :title AND author = :author AND category = :category ', [
     'title' => $bookName,
     'author' => $authorName,
-    'user_id' => $userID
+    'category' => $category,
 ])->find();
 
-if ($category === 'None') {
-    $errors['category'] = "Please select a category";
-}
+// if ($category == 'None') {
+//     $errors['category'] = "Please select a category";
+// }
 
 if ($book) {
     $errors['book'] = "This book already exist";
-}
-
-if (!empty($errors)) {
     require 'src\views\user\books\addBook\add-books.view.php';
+} else {
+    $db->query("INSERT INTO books (`title`, `author`, `category`, `status`, `user_id`) VALUES ('$bookName', '$authorName', '$category', '$status', '$userID')");
+
+    header("Location: /myBooks");
+    exit();
 }
 
-$db->query("INSERT INTO books (`title`, `author`, `category`, `status`, `user_id`) VALUES ('$bookName', '$authorName', '$category', 'Unread', '$userID')");
+// if (!empty($errors)) {
+//     require 'src\views\user\books\addBook\add-books.view.php';
+// }
 
-header("Location: /myBooks");
-exit();
+
 
 
 // require 'src\views\user\books\addBook\add-books.view.php';

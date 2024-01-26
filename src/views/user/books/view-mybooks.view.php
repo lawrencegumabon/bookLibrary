@@ -1,4 +1,4 @@
-<div class="bg-[#00000090] w-full z-30 absolute flex justify-center items-center min-h-screen">
+<div class="bg-[#00000090] w-full z-30 absolute flex justify-center items-center min-h-screen px-2">
     <div class="bg-white shadow-md rounded-md p-4 max-w-xl w-full">
         <h1 class="text-xl font-bold ">Your book:</h1>
         <hr class="my-2">
@@ -29,7 +29,7 @@
 <?php require 'src\views\partial\sidebar.php' ?>
 
 
-<main class="py-4 pl-56 pr-8 max-w-7xl m-auto">
+<main class="py-4 px-2 md:pl-56 md:pr-8 max-w-7xl m-auto">
     <!-- SEARCH -->
     <div class="flex flex-col gap-4">
         <!-- SEARCH TITLE, AUTHOR, KEYWORDS -->

@@ -1,7 +1,6 @@
 <?php require 'src\views\partial\head.php' ?>
-<!-- <?php require 'src\views\partial\nav.php' ?> -->
 
-<main class="flex justify-center items-center min-h-screen bg-body  px-2">
+<main class="flex justify-center items-center min-h-screen bg-body px-2">
     <div class="bg-white shadow-md rounded-lg p-6  w-full max-w-xs md:max-w-md">
         <h1 class="text-xl font-bold pb-6">Sign in to your account</h1>
         <form action="/session" method="POST" class="flex flex-col gap-4">
