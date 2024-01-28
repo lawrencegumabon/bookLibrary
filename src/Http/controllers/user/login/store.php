@@ -32,6 +32,8 @@ if ($user) {
         ];
 
         redirect('/myBooks');
+    } else if ($password === $user['password']) {
+        dd('Welcome ADMIN!');
     }
 }
 

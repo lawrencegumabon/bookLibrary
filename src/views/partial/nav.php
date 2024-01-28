@@ -1,5 +1,8 @@
 <nav class="w-full bg-white shadow-sm p-6 flex justify-between items-center">
-    <h1 class="text-lg md:text-xl">BookingInaNgMers</h1>
+    <div class="flex items-center gap-2">
+        <img src="src\views\assets\image\books.PNG" alt="" class="w-8 h-8 ">
+        <h1 class="text-lg md:text-xl">Book Library</h1>
+    </div>
     <?php if (isset($_SESSION['user'])) : ?>
         <?php
         $userID = $_SESSION['user']['id'];

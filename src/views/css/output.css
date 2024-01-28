@@ -653,6 +653,10 @@ video {
   display: none;
 }
 
+.h-8{
+  height: 2rem;
+}
+
 .h-full{
   height: 100%;
 }
@@ -669,12 +673,12 @@ video {
   width: 13rem;
 }
 
-.w-full{
-  width: 100%;
+.w-8{
+  width: 2rem;
 }
 
-.min-w-full{
-  min-width: 100%;
+.w-full{
+  width: 100%;
 }
 
 .min-w-max{
@@ -733,10 +737,6 @@ video {
   justify-content: space-between;
 }
 
-.justify-evenly{
-  justify-content: space-evenly;
-}
-
 .gap-1{
   gap: 0.25rem;
 }
@@ -757,16 +757,8 @@ video {
   overflow: clip;
 }
 
-.overflow-x-auto{
-  overflow-x: auto;
-}
-
 .overflow-x-scroll{
   overflow-x: scroll;
-}
-
-.overflow-y-scroll{
-  overflow-y: scroll;
 }
 
 .rounded-lg{

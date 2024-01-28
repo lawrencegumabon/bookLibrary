@@ -12,12 +12,9 @@ $user = $db->query('SELECT * FROM users WHERE id = :id', [
     'id' => $userID
 ])->find();
 
-$books = $db->query('SELECT * FROM books')->get();
+$books = $db->query('SELECT * FROM books ORDER BY title ASC')->get();
 
 $categoriesJson = file_get_contents('src\views\categories\categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
-
-
-
-require 'src\views\user\books\addBook\add-books.view.php';
+require 'src\views\reader\books\mybooks.view.php';

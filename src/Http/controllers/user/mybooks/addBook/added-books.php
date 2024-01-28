@@ -12,9 +12,10 @@ $user = $db->query('SELECT * FROM users WHERE id = :id', [
     'id' => $userID
 ])->find();
 
-$books = $db->query('SELECT * FROM books WHERE user_id = :user_id', [
-    'user_id' => $userID
-])->get();
+// $books = $db->query('SELECT * FROM books WHERE user_id = :user_id', [
+//     'user_id' => $userID
+// ])->get();
+$books = $db->query('SELECT * FROM books')->get();
 
 $categoriesJson = file_get_contents('src\views\categories\categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
@@ -36,11 +37,22 @@ $book = $db->query('SELECT * FROM books WHERE title = :title AND author = :autho
 //     $errors['category'] = "Please select a category";
 // }
 
+$readers = $db->query('SELECT * FROM users WHERE type = :type', [
+    'type' => 1
+])->get();
+
 if ($book) {
     $errors['book'] = "This book already exist";
     require 'src\views\user\books\addBook\add-books.view.php';
 } else {
-    $db->query("INSERT INTO books (`title`, `author`, `category`, `status`, `user_id`) VALUES ('$bookName', '$authorName', '$category', '$status', '$userID')");
+    $db->query("INSERT INTO books (`title`, `author`, `category`) VALUES ('$bookName', '$authorName', '$category')");
+    // $newBookId = $pdo->lastInsertId();
+    $newBookId = $db->getPDO()->lastInsertId();
+
+    // dd($newBookId);
+    foreach ($readers as $reader) {
+        $db->query("INSERT INTO bookstatus (`userID`, `bookID`, `bookStatus`) VALUES ('$reader[id]', '$newBookId', 'Unread')");
+    }
 
     header("Location: /myBooks");
     exit();

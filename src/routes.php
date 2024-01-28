@@ -47,3 +47,10 @@ $router->post('/name-changed', 'src/Http/controllers/user/settings/name/changedN
 // PASSWORD
 $router->get('/password', 'src/Http/controllers/user/settings/password/password.php')->only('auth');
 $router->post('/password-changed', 'src/Http/controllers/user/settings/password/changedPassword.php')->only('auth');
+
+
+
+// ! READER SIDE
+
+// MY BOOKS
+$router->get('/allBooks', 'src/Http/controllers/reader/books/mybooks.php')->only('auth');

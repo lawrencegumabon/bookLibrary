@@ -31,7 +31,7 @@
     <!-- MY BOOKS -->
     <div class="w-full justify-between my-6 flex items-center">
         <h1 class="text-xl font-bold ">My Books</h1>
-        <a href="/add-book" class="text-white bg-[#2563EB] py-1 px-4 rounded-md shadow-md">Add Book</a>
+        <!-- <a href="/add-book" class="text-white bg-[#2563EB] py-1 px-4 rounded-md shadow-md">Add Book</a> -->
     </div>
     <div class="overflow-x-scroll md:overflow-auto">
         <table class="min-w-max w-full rounded-md overflow-clip shadow-md text-center mb-6">
@@ -48,7 +48,10 @@
             <tbody class="text-center">
                 <?php foreach ($books as $book) : ?>
                     <tr class="border-b">
-                        <td class="py-3 px-2 title"><?= $book['title'] ?></td>
+                        <td class="py-3 px-2 title">
+
+                            <a href="/view-myBooks?bookID=<?= $book['id'] ?>" class="underline"><?= $book['title'] ?></a>
+                        </td>
                         <td class="author"><?= $book['author'] ?></td>
                         <td class="category"><?= $book['category'] ?></td>
                         <td class="underline">
@@ -58,10 +61,13 @@
                                 <a href="/unread-book?bookID=<?= $book['id'] ?>" class="status">Read</a>
                             <?php endif; ?>
                         </td>
-                        <td class="py-3 px-2 flex flex-col md:flex-row md:items-center justify-center md:justify-evenly gap-2 md:gap-0">
+                        <!-- <td class="py-3 px-2 flex flex-col md:flex-row md:items-center justify-center md:justify-evenly gap-2 md:gap-0">
                             <a href="/view-myBooks?bookID=<?= $book['id'] ?>" class="bg-[#28A745] text-white rounded-md py-1 px-2 shadow-md"><i class="fa-solid fa-eye "></i></a>
                             <a href="/edit-book?bookID=<?= $book['id'] ?>" class="bg-[#2563EB] text-white rounded-md py-1 px-2 shadow-md"><i class="fa-solid fa-pen-to-square "></i><span class="hidden"><?= $book['id'] ?></span></a>
                             <a href="/delete-book?bookID=<?= $book['id'] ?>" class="bg-[#DC3545] text-white rounded-md py-1 px-2 shadow-md"><i class="fa-solid fa-trash "></i></a>
+                        </td> -->
+                        <td>
+                            <a href="" class="text-white bg-[#28A745] py-1 px-2 rounded-md shadow-md">Download</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
