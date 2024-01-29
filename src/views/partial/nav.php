@@ -1,4 +1,4 @@
-<nav class="w-full bg-white shadow-sm p-6 flex justify-between items-center">
+<nav class="w-full bg-white shadow-sm p-6 flex justify-between items-center fixed top-0 left-0 right-0">
     <div class="flex items-center gap-2">
         <img src="src\views\assets\image\books.PNG" alt="" class="w-8 h-8 ">
         <h1 class="text-lg md:text-xl">Book Library</h1>
@@ -12,6 +12,15 @@
         ])->find();
         ?>
         <p class="hidden md:block">Hello, <span class="font-bold "><?= $user['fullName'] ?></span></p>
+    <?php elseif (isset($_SESSION['admin'])) : ?>
+        <?php
+        $adminID = $_SESSION['admin']['id'];
+
+        $admin = $db->query('SELECT * FROM users WHERE id = :id', [
+            'id' => $adminID
+        ])->find();
+        ?>
+        <p class="hidden md:block">Hello, <span class="font-bold "><?= $admin['fullName'] ?></span></p>
     <?php endif; ?>
     <div class="text-right z-50 md:hidden">
         <i class="fa-solid fa-bars text-xl cursor-pointer" id="menu"></i>
