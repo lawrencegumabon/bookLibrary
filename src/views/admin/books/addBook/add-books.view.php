@@ -36,8 +36,12 @@
                     <option value="Unread">Read</option>
                 </select>
             </div> -->
-            <div>
-                <input type="file" name="fileUpload" id="fileUpload">
+            <div class="flex flex-col">
+                <p>Upload a file:</p>
+                <input type="file" name="fileUpload" id="fileUpload" hidden>
+                <label for="fileUpload" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none cursor-pointer" id="fileName">
+                    Please upload a file.
+                </label>
             </div>
             <div class="flex justify-between w-full gap-2">
                 <a href="/myBooks" class="flex justify-center w-full">
@@ -156,4 +160,14 @@
     //         }
     //     });
     // });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileUpload = document.getElementById('fileUpload');
+        const fileName = document.getElementById('fileName');
+
+        fileUpload.addEventListener('change', function() {
+            const nameOfFile = fileUpload.files[0]?.name;
+            fileName.innerHTML = nameOfFile;
+        });
+    });
 </script>

@@ -38,7 +38,7 @@
             <?php elseif (isset($errors['password'])) : ?>
                 <p class="text-center text-sm text-[#DC3545]"><?= $errors['password'] ?></p>
             <?php endif; ?>
-            <p class="text-xs">Don't have an account yet?<a href="/sign-in" class="text-primary"> Sign in</a></p>
+            <p class="text-xs">Already have an account?<a href="/sign-in" class="text-primary"> Sign in</a></p>
         </form>
     </div>
 </main>

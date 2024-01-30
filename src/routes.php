@@ -16,6 +16,7 @@ $router->post('/sessions', 'src/Http/controllers/admin/register/store.php')->onl
 // MY BOOKS
 $router->get('/myBooks', 'src/Http/controllers/admin/myBooks/mybooks.php')->only('admin');
 $router->get('/view-myBooks', 'src/Http/controllers/admin/myBooks/view-mybooks.php')->only('admin');
+$router->get('/pdf-myBooks', 'src/Http/controllers/admin/myBooks/viewPDF.php')->only('admin');
 
 // ADD BOOK
 $router->get('/add-book', 'src/Http/controllers/admin/myBooks/addBook/add-books.php')->only('admin');

@@ -15,9 +15,15 @@
                 <p>Category:</p>
                 <p class="border border-outline p-1 px-2 rounded-md"><?= $myBook['category'] ?></p>
             </div>
+            <div>
+                <p>File:</p>
+                <div class="border border-outline p-1 px-2 rounded-md w-full">
+                    <a href="/pdf-myBooks?bookID=<?= $myBook['id'] ?>" target="_blank">View <span class="underline">FILE</span></a>
+                </div>
+            </div>
             <!-- <div>
                 <p>Status:</p>
-                <p class="border border-outline p-1 px-2 rounded-md"><?= $myBook['status'] ?></p>
+                <p class=" border border-outline p-1 px-2 rounded-md"><?= $myBook['status'] ?></p>
             </div> -->
         </div>
         <a href="/myBooks" class="flex justify-center"><button class="text-white bg-[#28A745] py-1 px-10 font-bold rounded-md shadow-md tracking-widest">DONE</button></a>

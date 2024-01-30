@@ -82,27 +82,27 @@
         // INPUT
         const search = document.getElementById('search').value.toLowerCase();
         const categories = document.getElementById('categories').value;
-        const status = document.getElementById('status').value;
+        // const status = document.getElementById('status').value;
 
         // DATA
         const titles = document.querySelectorAll('.title');
         const authors = document.querySelectorAll('.author');
         const categoriesElements = document.querySelectorAll('.category');
-        const statusElements = document.querySelectorAll('.status');
+        // const statusElements = document.querySelectorAll('.status');
 
         titles.forEach((title, index) => {
             const row = title.closest('tr');
             const bookTitle = title.textContent.toLowerCase();
             const bookAuthor = authors[index].textContent;
             const bookCategory = categoriesElements[index].textContent;
-            const bookStatus = statusElements[index].textContent;
+            // const bookStatus = statusElements[index].textContent;
 
             const titleMatch = bookTitle.includes(search);
             const authorMatch = bookAuthor.toLowerCase().includes(search);
             const categoryMatch = categories === 'All' || bookCategory === categories;
-            const statusMatch = status === 'All' || bookStatus === status;
+            // const statusMatch = status === 'All' || bookStatus === status;
             // Display row if any condition is true
-            if ((titleMatch || authorMatch) && categoryMatch && statusMatch) {
+            if ((titleMatch || authorMatch) && categoryMatch) {
                 row.style.display = '';
             } else {
                 row.style.display = 'none';

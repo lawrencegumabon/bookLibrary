@@ -673,26 +673,12 @@ video {
   height: 100%;
 }
 
-.h-screen{
-  height: 100vh;
-}
-
 .min-h-full{
   min-height: 100%;
 }
 
 .min-h-screen{
   min-height: 100vh;
-}
-
-.min-h-max{
-  min-height: -moz-max-content;
-  min-height: max-content;
-}
-
-.min-h-min{
-  min-height: -moz-min-content;
-  min-height: min-content;
 }
 
 .w-52{

@@ -16,7 +16,7 @@
                     <i class="fa-solid fa-eye absolute right-0 top-1/2 -translate-y-1/2 -translate-x-1/2 text-[#7A7A7A] cursor-pointer" id="togglePass" onclick="togglePassword()"></i>
                 </div>
             </div>
-            <a href="" class="text-xs text-right text-primary">Forgot password?</a>
+            <!-- <a href="" class="text-xs text-right text-primary">Forgot password?</a> -->
             <input type="submit" value="Sign in" name="" id="" class="bg-primary text-white py-1 rounded-md shadow-md cursor-pointer hover:brightness-110 duration-300">
             <?php if (isset($errors['email'])) : ?>
                 <p class="text-center text-sm text-[#DC3545]"><?= $errors['email'] ?></p>

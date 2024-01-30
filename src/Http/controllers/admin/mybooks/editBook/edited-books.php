@@ -1,6 +1,5 @@
 <?php
 
-use Core\Validator;
 use Core\Database;
 use Core\App;
 
@@ -22,41 +21,33 @@ $authorName = $_POST['authorName'];
 $category = $_POST['category'];
 $bookID = $_POST['bookID'];
 
-$errors = [];
-
-$book = $db->query('SELECT * FROM books WHERE title = :title AND author = :author AND category = :category', [
-    'title' => $bookName,
-    'author' => $authorName,
-    'category' => $category,
-])->find();
-
 $myBook = $db->query('SELECT * FROM books WHERE id = :id', [
     'id' => $bookID
 ])->find();
 
+$errors = [];
 
-// dd($myBook);
+if (isset($_FILES['fileUpload'])) {
+    $target_dir = 'src/views/assets/uploads/';
+    $target_file = $target_dir . basename($_FILES['fileUpload']['name']);
+    $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-// if ($category === 'None') {
-//     $errors['category'] = "Please select a category";
-// }
-
-if ($book) {
-    $errors['book'] = "This book already exist";
-    return require 'src\views\admin\books\editBook\edit-books.view.php';
+    if ($fileType != "docx" && $fileType != "pdf") {
+        $errors['file'] = "Sorry, only DOCX and PDF are allowed.";
+    } else {
+        if (move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file)) {
+            // Update the file in the database
+            $db->query('UPDATE books SET file = :file WHERE id = :id', [
+                'file' => $target_file,
+                'id' => $bookID
+            ]);
+        } else {
+            $errors['file'] = "Sorry, there was an error uploading your file.";
+        }
+    }
 }
 
-// if (!empty($errors)) {
-//     require 'src\views\user\books\editBook\edit-books.view.php';
-// } {
-// if (!$myBook || $myBook['id'] != $bookID) {
-//     abort(404);
-// } else if (!$myBook || $myBook['user_id'] != $userID) {
-//     abort(403);
-// }
-
-// $db->query("INSERT INTO books (`title`, `author`, `category`, `status`, `user_id`) VALUES ('$bookName', '$authorName', '$category', 'Unread', '$userID')");
-
+// Update the book information excluding the file
 $db->query('UPDATE books SET title = :title, author = :author, category = :category WHERE id = :id', [
     'title' => $bookName,
     'author' => $authorName,
@@ -66,11 +57,3 @@ $db->query('UPDATE books SET title = :title, author = :author, category = :categ
 
 header("Location: /myBooks");
 exit();
-// }
-
-
-
-
-
-
-// require 'src\views\user\books\mybooks.view.php';

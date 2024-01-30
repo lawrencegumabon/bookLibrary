@@ -72,7 +72,7 @@
                             <a href="/delete-book?bookID=<?= $book['id'] ?>" class="bg-[#DC3545] text-white rounded-md py-1 px-2 shadow-md"><i class="fa-solid fa-trash "></i></a>
                         </td> -->
                         <td>
-                            <a href="" class="text-white bg-[#28A745] py-1 px-2 rounded-md shadow-md">Download</a>
+                            <a href="<?= $book['file'] ?>" class="text-white bg-[#28A745] py-1 px-2 rounded-md shadow-md" target="_blank">View File</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

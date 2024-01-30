@@ -4,7 +4,7 @@
     <div class="bg-white shadow-md rounded-md p-4 max-w-xl w-full">
         <h1 class="text-xl font-bold ">Edit book:</h1>
         <hr class="my-2">
-        <form action="/edited-book" method="POST" class="flex flex-col gap-4 my-4">
+        <form action="/edited-book" method="POST" class="flex flex-col gap-4 my-4" enctype="multipart/form-data">
             <input type="text" name="bookID" value="<?= $myBook['id'] ?>" hidden>
             <div class="">
                 <label for="bookName">Book name:</label>
@@ -30,12 +30,20 @@
                     <p class="text-xs text-danger mt-1"><?= $errors['category'] ?></p>
                 <?php endif; ?>
             </div>
+            <div class="flex flex-col">
+                <p>Upload a file:</p>
+                <input type="file" name="fileUpload" id="fileUpload" hidden>
+                <label for="fileUpload" class="border bg-body border-outline p-1 px-2 rounded-md w-full outline-none cursor-pointer" id="fileName">
+                    <?= $myBook['file'] ?>
+                </label>
+            </div>
             <div class="flex justify-between w-full gap-2">
                 <a href="/myBooks" class="flex justify-center w-full">
                     <p class="text-white bg-[#DC3545] py-1 font-bold rounded-md shadow-md tracking-widest w-full text-center hover:brightness-110 duration-300">CANCEL</p>
                 </a>
                 <div class="flex justify-center w-full"><button type="submit" class="text-white bg-[#28A745] py-1 font-bold rounded-md shadow-md tracking-widest w-full hover:brightness-110 duration-300">SAVE</button></div>
             </div>
+
         </form>
 
     </div>
@@ -113,35 +121,45 @@
 </main>
 
 <script>
-    addEventListener('input', () => {
-        // INPUT
-        const search = document.getElementById('search').value.toLowerCase();
-        const categories = document.getElementById('categories').value;
-        const status = document.getElementById('status').value;
+    // addEventListener('input', () => {
+    //     // INPUT
+    //     const search = document.getElementById('search').value.toLowerCase();
+    //     const categories = document.getElementById('categories').value;
+    //     const status = document.getElementById('status').value;
 
-        // DATA
-        const titles = document.querySelectorAll('.title');
-        const authors = document.querySelectorAll('.author');
-        const categoriesElements = document.querySelectorAll('.category');
-        const statusElements = document.querySelectorAll('.status');
+    //     // DATA
+    //     const titles = document.querySelectorAll('.title');
+    //     const authors = document.querySelectorAll('.author');
+    //     const categoriesElements = document.querySelectorAll('.category');
+    //     const statusElements = document.querySelectorAll('.status');
 
-        titles.forEach((title, index) => {
-            const row = title.closest('tr');
-            const bookTitle = title.textContent.toLowerCase();
-            const bookAuthor = authors[index].textContent;
-            const bookCategory = categoriesElements[index].textContent;
-            const bookStatus = statusElements[index].textContent;
+    //     titles.forEach((title, index) => {
+    //         const row = title.closest('tr');
+    //         const bookTitle = title.textContent.toLowerCase();
+    //         const bookAuthor = authors[index].textContent;
+    //         const bookCategory = categoriesElements[index].textContent;
+    //         const bookStatus = statusElements[index].textContent;
 
-            const titleMatch = bookTitle.includes(search);
-            const authorMatch = bookAuthor.toLowerCase().includes(search);
-            const categoryMatch = categories === 'All' || bookCategory === categories;
-            const statusMatch = status === 'All' || bookStatus === status;
-            // Display row if any condition is true
-            if ((titleMatch || authorMatch) && categoryMatch && statusMatch) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
+    //         const titleMatch = bookTitle.includes(search);
+    //         const authorMatch = bookAuthor.toLowerCase().includes(search);
+    //         const categoryMatch = categories === 'All' || bookCategory === categories;
+    //         const statusMatch = status === 'All' || bookStatus === status;
+    //         // Display row if any condition is true
+    //         if ((titleMatch || authorMatch) && categoryMatch && statusMatch) {
+    //             row.style.display = '';
+    //         } else {
+    //             row.style.display = 'none';
+    //         }
+    //     });
+    // });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const fileUpload = document.getElementById('fileUpload');
+        const fileName = document.getElementById('fileName');
+
+        fileUpload.addEventListener('change', function() {
+            const nameOfFile = fileUpload.files[0]?.name;
+            fileName.innerHTML = nameOfFile;
         });
     });
 </script>

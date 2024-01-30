@@ -27,7 +27,7 @@ if (!Validator::string($password, 7, 255)) {
 }
 
 if (!empty($errors)) {
-    return require 'src\views\user\register\register.view.php';
+    return require 'src\views\admin\register\register.view.php';
 }
 
 $user = $db->query('SELECT * FROM users WHERE email = :email', [
