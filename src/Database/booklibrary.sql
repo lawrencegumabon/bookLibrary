@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jan 30, 2024 at 04:55 AM
+-- Generation Time: Feb 02, 2024 at 03:06 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -41,8 +41,8 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `author`, `category`, `status`, `file`) VALUES
-(1, 'The Book 2', 'Juan Dela Cruzs', 'Science', '', 'src/views/assets/uploads/REFLECTION 1.docx'),
-(2, 'The Book 3', 'Pedro', 'Science Fiction', '', 'src/views/assets/uploads/Books.pdf');
+(2, 'The Book 3', 'Pedro', 'Science Fiction', '', 'src/views/assets/uploads/Books.pdf'),
+(3, 'The Book 5', 'Pedro', 'Thriller', '', 'src/views/assets/uploads/Books (1).pdf');
 
 -- --------------------------------------------------------
 
@@ -62,10 +62,10 @@ CREATE TABLE `bookstatus` (
 --
 
 INSERT INTO `bookstatus` (`id`, `userID`, `bookID`, `bookStatus`) VALUES
-(1, 2, 1, 'Read'),
 (2, 2, 2, 'Unread'),
-(3, 3, 1, 'Read'),
-(4, 3, 2, 'Unread');
+(6, 4, 2, 'Read'),
+(7, 2, 3, 'Unread'),
+(8, 4, 3, 'Unread');
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email`, `fullName`, `password`, `type`) VALUES
 (1, 'admin@gmail.com', 'Admin ', 'admin', 0),
 (2, 'gumabon@gmail.com', 'Gumabon Lawrence', '$2y$10$6hSQNi3Zf5QP8mWJS7Jzi.ndz3W.8ODUDeBn5iyINIR1b397OgZ9e', 1),
-(3, 'lawrence@gmail.com', 'Lawrence Gumabon', '$2y$10$jVzuQ1xmmZAQkKoIb4lzs.tuwnmsNbmb0x1/vb0Ltz1yz45S3XlU.', 1);
+(4, 'lawrence@gmail.com', 'Lawrence Gumabon', '$2y$10$IaUmq7DXFTYpPabKOSSpf.ALcpPcc.g4UMhGylFf0a/Q/KNxO3H2C', 1);
 
 --
 -- Indexes for dumped tables
@@ -122,19 +122,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `bookstatus`
 --
 ALTER TABLE `bookstatus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

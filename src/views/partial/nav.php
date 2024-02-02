@@ -29,11 +29,14 @@
 
 <!-- <div class="bg-body w-full h-full  z-40 hidden"> -->
 <!-- <div class="text-left h-full w-full"> -->
-<ul class="flex-col gap-2 w-full justify-center items-center min-h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-body hidden" id="lists">
-    <li><a href="/myBooks" class=" flex items-center gap-4 p-2 px-4  rounded-md "><i class="fa-solid fa-book-open"></i>Books</a></li>
-    <li><a href="/settings" class="flex items-center gap-4 p-2 px-4 rounded-md  "><i class="fa-solid fa-gear"></i>Settings</a></li>
+<ul class="flex-col gap-2 w-full justify-center items-center fixed h-full mt-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-body hidden md:hidden" id="lists">
+    <li><a href="<?= isset($_SESSION['admin']) ? '/myBooks' : '/allBooks' ?>" class=" flex items-center gap-4 p-2 px-4  rounded-md "><i class="fa-solid fa-book-open"></i>Books</a></li>
+    <?php if (isset($_SESSION['user'])) : ?>
+        <li><a href="/settings" class="flex items-center gap-4 p-2 px-4 rounded-md  "><i class="fa-solid fa-gear"></i>Settings</a></li>
+    <?php elseif (isset($_SESSION['admin'])) : ?>
+    <?php endif; ?>
     <li class=" rounded-md ">
-        <form action="/logout" method="POST">
+        <form action="<?= isset($_SESSION['admin']) ? '/admin-logout' : '/logout' ?>" method="POST">
             <input type="hidden" name="_method" id="logout" value="DELETE">
             <button class="flex items-center gap-4 p-2 px-4 rounded-md "><i class="fa-solid fa-right-from-bracket rotate-180"></i>Logout</button>
         </form>
