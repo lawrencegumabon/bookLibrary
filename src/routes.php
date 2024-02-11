@@ -1,5 +1,7 @@
 <?php
 
+
+
 //SIGN UP
 $router->get('/', 'src/Http/controllers/index.php');
 

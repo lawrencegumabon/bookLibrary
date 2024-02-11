@@ -6,11 +6,11 @@ use Core\Database;
 
 $container = new Container();
 
-$container->bind('Core/Database', function () {
+$container->bind('Core\Database', function () {
     $config = require('src/config.php');
     return new Database($config['database']);
 });
 
-$db = $container->resolve('Core/Database');
+$db = $container->resolve('Core\Database');
 
 App::setContainer($container);
