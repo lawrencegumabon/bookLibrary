@@ -1,3 +1,3 @@
 <?php
 
-require 'src\views\admin\login\login.view.php';
+require 'src/views/admin/login/login.view.php';

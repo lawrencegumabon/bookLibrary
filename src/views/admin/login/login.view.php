@@ -1,4 +1,4 @@
-<?php require 'src\views\partial\head.php' ?>
+<?php require "src/views/partial/head.php" ?>
 
 <main class="flex justify-center items-center min-h-screen bg-body px-2">
     <div class="bg-white shadow-md rounded-lg p-6  w-full max-w-xs md:max-w-md">

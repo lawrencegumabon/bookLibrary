@@ -27,7 +27,7 @@ if (!Validator::string($password, 7, 255)) {
 }
 
 if (!empty($errors)) {
-    return require 'src\views\admin\register\register.view.php';
+    return require 'src/views/admin/register/register.view.php';
 }
 
 $user = $db->query('SELECT * FROM users WHERE email = :email', [
@@ -39,7 +39,7 @@ $books = $db->query('SELECT * FROM books')->get();
 if ($user) {
     $errors['account'] = 'This account already exist!';
 
-    return require 'src\views\admin\register\register.view.php';
+    return require 'src/views/admin/register/register.view.php';
 } else {
     $db->query("INSERT INTO users (`email`, `fullName`, `password`, `type`) VALUES ('$email', '$name', '$password', '1')");
     $newUserID = $db->getPDO()->lastInsertId();

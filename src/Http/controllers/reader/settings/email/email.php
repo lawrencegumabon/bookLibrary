@@ -11,4 +11,4 @@ $user = $db->query('SELECT * FROM users WHERE id = :id', [
     'id' => $userID
 ])->find();
 
-require 'src\views\reader\settings\email\email.view.php';
+require 'src/views/reader/settings/email/email.view.php';

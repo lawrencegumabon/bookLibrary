@@ -1,6 +1,6 @@
-<?php require 'src\views\partial\head.php' ?>
-<?php require 'src\views\partial\nav.php' ?>
-<?php require 'src\views\partial\sidebar.php' ?>
+<?php require 'src/views/partial/head.php' ?>
+<?php require 'src/views/partial/nav.php' ?>
+<?php require 'src/views/partial/sidebar.php' ?>
 
 <main class="py-4 px-2 md:pl-56 md:pr-8 max-w-7xl m-auto pt-24">
     <!-- SETTINGS-->

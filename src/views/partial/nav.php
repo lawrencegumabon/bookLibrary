@@ -1,6 +1,6 @@
 <nav class="w-full bg-white shadow-sm p-6 flex justify-between items-center fixed top-0 left-0 right-0">
     <div class="flex items-center gap-2">
-        <img src="src\views\assets\image\books.PNG" alt="" class="w-8 h-8 ">
+        <img src="src/views/assets/image/books.PNG" alt="" class="w-8 h-8 ">
         <h1 class="text-lg md:text-xl">Book Library</h1>
     </div>
     <?php if (isset($_SESSION['user'])) : ?>

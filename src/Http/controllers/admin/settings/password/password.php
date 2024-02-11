@@ -11,4 +11,4 @@ $user = $db->query('SELECT * FROM users WHERE id = :id', [
     'id' => $userID
 ])->find();
 
-require 'src\views\user\settings\password\password.view.php';
+require 'src/views/user/settings/password/password.view.php';

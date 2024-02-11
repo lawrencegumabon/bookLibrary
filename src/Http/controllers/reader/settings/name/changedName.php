@@ -23,7 +23,7 @@ $names = $db->query('SELECT * FROM users WHERE fullName = :fullName', [
 
 // if ($names) {
 //     $errors['name'] = "This email already exists!";
-//     require 'src\views\user\settings\name\name.view.php';
+//     require 'src/views/user/settings/name/name.view.php';
 // } 
 // else {
 $db->query('UPDATE users SET fullName = :fullName WHERE id = :id', [
@@ -34,5 +34,5 @@ $db->query('UPDATE users SET fullName = :fullName WHERE id = :id', [
 
 // header("Location: /settings");
 // exit();
-require 'src\views\reader\settings\name\success.view.php';
+require 'src/views/reader/settings/name/success.view.php';
 // }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Feb 09, 2024 at 05:21 AM
+-- Generation Time: Feb 09, 2024 at 06:26 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -62,9 +62,7 @@ CREATE TABLE `bookstatus` (
 --
 
 INSERT INTO `bookstatus` (`id`, `userID`, `bookID`, `bookStatus`) VALUES
-(2, 2, 2, 'Unread'),
 (6, 4, 2, 'Read'),
-(7, 2, 3, 'Unread'),
 (8, 4, 3, 'Unread');
 
 -- --------------------------------------------------------
@@ -87,8 +85,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `fullName`, `password`, `type`) VALUES
 (1, 'admin@gmail.com', 'Admin ', 'admin', 0),
-(2, 'gumabon@gmail.com', 'Gumabon Lawrence', '$2y$10$6hSQNi3Zf5QP8mWJS7Jzi.ndz3W.8ODUDeBn5iyINIR1b397OgZ9e', 1),
-(4, 'lawrence@gmail.com', 'Lawrence Gumabon', '$2y$10$IaUmq7DXFTYpPabKOSSpf.ALcpPcc.g4UMhGylFf0a/Q/KNxO3H2C', 1);
+(4, 'lawrence@gmail.com', 'Lawrence', '$2y$10$IaUmq7DXFTYpPabKOSSpf.ALcpPcc.g4UMhGylFf0a/Q/KNxO3H2C', 1);
 
 --
 -- Indexes for dumped tables

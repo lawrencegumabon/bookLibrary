@@ -16,7 +16,7 @@ if (!Validator::string($password, 7, 255)) {
 }
 
 // if (!empty($errors)) {
-//     return require 'src\views\user\login\login.view.php';
+//     return require 'src/views/user/login/login.view.php';
 // }
 
 $user = $db->query('SELECT * FROM users WHERE email = :email', [
@@ -49,4 +49,4 @@ $errors['email'] = 'Account not found!';
 // TO RETAIN THE EMAIL TYPED BY THE USER
 $_SESSION['_flash']['old'] = $_POST['email'];
 
-return require 'src\views\admin\login\login.view.php';
+return require 'src/views/admin/login/login.view.php';

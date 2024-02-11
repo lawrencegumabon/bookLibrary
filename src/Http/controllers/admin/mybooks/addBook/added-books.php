@@ -14,7 +14,7 @@ $admin = $db->query('SELECT * FROM users WHERE id = :id', [
 
 $books = $db->query('SELECT * FROM books')->get();
 
-$categoriesJson = file_get_contents('src\views\categories\categories.json');
+$categoriesJson = file_get_contents('src/views/categories/categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
 $bookName = $_POST['bookName'];
@@ -30,7 +30,7 @@ $book = $db->query('SELECT * FROM books WHERE title = :title AND author = :autho
 
 if ($book) {
     $errors['book'] = "This book already exist";
-    require 'src\views\admin\books\addBook\add-books.view.php';
+    require 'src/views/admin/books/addBook/add-books.view.php';
 } else {
 
     //  FOR FILE UPLOADING
@@ -43,20 +43,20 @@ if ($book) {
     if ($fileType == '') {
         $uploadOk = 0;
         $errors['file'] = "Uploading a PDF file is required!";
-        require 'src\views\admin\books\addBook\add-books.view.php';
+        require 'src/views/admin/books/addBook/add-books.view.php';
         exit();
     }
 
     if ($fileType != "docx" && $fileType != "pdf") {
         $uploadOk = 0;
         $errors['file'] = "Sorry, only DOCX and PDF are allowed.";
-        require 'src\views\admin\books\addBook\add-books.view.php';
+        require 'src/views/admin/books/addBook/add-books.view.php';
         exit();
     }
 
     if ($uploadOk == 0) {
         $errors['file'] = "Sorry, only DOCX and PDF are allowed.";
-        require 'src\views\admin\books\addBook\add-books.view.php';
+        require 'src/views/admin/books/addBook/add-books.view.php';
         exit();
     } else {
         if (move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_file)) {
@@ -74,7 +74,7 @@ if ($book) {
             exit();
         } else {
             $errors['file'] =  "Sorry, there was an error uploading your file.";
-            require 'src\views\admin\books\addBook\add-books.view.php';
+            require 'src/views/admin/books/addBook/add-books.view.php';
             exit();
         }
     }

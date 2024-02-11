@@ -1,4 +1,4 @@
-<?php require('src\views\partial\head.php') ?>
+<?php require('src/views/partial/head.php') ?>
 
 <div class=" bg-primary">
     <!-- MAIN -->

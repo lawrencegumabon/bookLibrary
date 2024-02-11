@@ -1,4 +1,4 @@
-<?php require 'src\views\partial\head.php' ?>
+<?php require 'src/views/partial/head.php' ?>
 
 <div class="bg-[#00000090] w-full z-30 absolute flex justify-center items-center min-h-screen px-2">
     <div class="bg-white shadow-md rounded-md p-4 max-w-xl w-full">
@@ -24,8 +24,8 @@
 </div>
 
 
-<?php require 'src\views\partial\nav.php' ?>
-<?php require 'src\views\partial\sidebar.php' ?>
+<?php require 'src/views/partial/nav.php' ?>
+<?php require 'src/views/partial/sidebar.php' ?>
 
 <main class="py-4 px-2 md:pl-56 md:pr-8 max-w-7xl m-auto pt-24">
     <!-- SETTINGS-->

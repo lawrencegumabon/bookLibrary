@@ -14,7 +14,7 @@ $admin = $db->query('SELECT * FROM users WHERE id = :id', [
 
 $books = $db->query('SELECT * FROM books')->get();
 
-$categoriesJson = file_get_contents('src\views\categories\categories.json');
+$categoriesJson = file_get_contents('src/views/categories/categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
-require 'src\views\admin\books\addBook\add-books.view.php';
+require 'src/views/admin/books/addBook\/dd-books.view.php';

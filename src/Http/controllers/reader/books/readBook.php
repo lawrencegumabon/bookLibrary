@@ -14,7 +14,7 @@ $user = $db->query('SELECT * FROM users WHERE id = :id', [
 
 $books = $db->query('SELECT * FROM books ORDER BY title ASC')->get();
 
-$categoriesJson = file_get_contents('src\views\categories\categories.json');
+$categoriesJson = file_get_contents('src/views/categories/categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
 $bookID = $_GET['bookID'];
@@ -30,6 +30,6 @@ $db->query('UPDATE bookStatus SET bookStatus = :bookStatus WHERE bookID = :bookI
     'bookStatus' => 'Read'
 ]);
 
-// require 'src\views\user\books\mybooks.view.php';
+// require 'src/views/user/books/mybooks.view.php';
 header("Location: /allBooks");
 exit();

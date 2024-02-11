@@ -14,7 +14,7 @@ $admin = $db->query('SELECT * FROM users WHERE id = :id', [
 
 $books = $db->query('SELECT * FROM books ORDER BY title ASC')->get();
 
-$categoriesJson = file_get_contents('src\views\categories\categories.json');
+$categoriesJson = file_get_contents('src/views/categories/categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
 $bookID = $_POST['bookID'];
@@ -25,6 +25,6 @@ $db->query('DELETE FROM books WHERE id = :id', [
 
 // dd($bookID);
 
-require 'src\views\admin\books\deleteBook\success.view.php';
+require 'src/views/admin/books/deleteBook/success.view.php';
 // header("Location: /myBooks");
 // exit();

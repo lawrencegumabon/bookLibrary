@@ -26,12 +26,12 @@ if (!Validator::string($password, 7, 255)) {
 }
 
 if (!empty($errors)) {
-    return require 'src\views\user\settings\password\password.view.php';
+    return require 'src/views/user/settings/password/password.view.php';
 }
 
 // if ($names) {
 //     $errors['name'] = "This email already exists!";
-//     require 'src\views\user\settings\name\name.view.php';
+//     require 'src/views/user/settings/name/name.view.php';
 // } 
 // else {
 $db->query('UPDATE users SET password = :password WHERE id = :id', [
@@ -42,5 +42,5 @@ $db->query('UPDATE users SET password = :password WHERE id = :id', [
 
 // header("Location: /settings");
 // exit();
-require 'src\views\user\settings\password\success.view.php';
+require 'src/views/user/settings/password/success.view.php';
 // }

@@ -17,7 +17,7 @@ $books = $db->query('SELECT * FROM books ORDER BY title ASC')->get();
 //     'userID' => $userID
 // ])->find();
 
-$categoriesJson = file_get_contents('src\views\categories\categories.json');
+$categoriesJson = file_get_contents('src/views/categories/categories.json');
 $categories = json_decode($categoriesJson, true)['categories'];
 
-require 'src\views\reader\books\mybooks.view.php';
+require 'src/views/reader/books/mybooks.view.php';
